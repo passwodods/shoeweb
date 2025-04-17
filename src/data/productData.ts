@@ -7,6 +7,14 @@ export interface ProductVariation {
   themeBgClass: string; // Tailwind class for background accents/theme
   themeButtonClass: string; // Tailwind class for buttons
   themeTextClass: string; // Tailwind class for accent text (optional)
+  isDefault?: boolean; // Add optional flag for the default variation
+}
+
+export interface Product {
+  id: string; // Add an ID for the overall product concept
+  name: string;
+  description: string;
+  variations: ProductVariation[];
 }
 
 // Define theme classes for Orange
@@ -26,6 +34,7 @@ export const productVariations: ProductVariation[] = [
     themeBgClass: 'bg-red-100',
     themeButtonClass: 'bg-red-600 hover:bg-red-700 focus:ring-red-500',
     themeTextClass: 'text-red-600',
+    isDefault: true, // Mark red as default
   },
   {
     id: 'shoe-blue',
@@ -60,7 +69,9 @@ export const productVariations: ProductVariation[] = [
   },
 ];
 
-export const defaultProduct = {
+export const defaultProduct: Product = { // Add type Product
+    id: 'runners-delight-shoe', // Assign a unique ID
     name: "The Runner's Delight",
-    description: "Experience unparalleled comfort and style with the Runner's Delight. Perfect for your daily runs or casual wear."
+    description: "Experience unparalleled comfort and style with the Runner's Delight. Perfect for your daily runs or casual wear.",
+    variations: productVariations // Combine variations here
 }

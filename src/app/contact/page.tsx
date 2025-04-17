@@ -4,7 +4,7 @@ import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
 
 export default function ContactPage() {
-  const { themeBgClass, themeButtonClass } = useTheme(); // Get theme classes
+  const { themeBgClass, themeButtonClass } = useTheme();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -20,7 +20,7 @@ export default function ContactPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center text-gray-800">Contact Us</h1>
 
         <p className="text-lg text-center text-gray-600 mb-8">
-          Have questions or feedback? Fill out the form below, and we'll get back to you as soon as possible.
+          Have questions or feedback? Fill out the form below, and we&apos;ll get back to you as soon as possible.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -73,11 +73,9 @@ export default function ContactPage() {
           </div>
         </form>
 
-        {/* Optional: Add other contact info like email/phone */}
         <div className="mt-10 text-center text-gray-600">
             <p>Or email us at: <a href="mailto:support@runnersdelight.com" className="underline hover:text-gray-800">support@runnersdelight.com</a></p>
         </div>
-
       </div>
     </main>
   );

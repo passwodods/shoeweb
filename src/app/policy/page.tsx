@@ -16,7 +16,7 @@ export default function PolicyPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-3 text-gray-700">Introduction</h2>
           <p className="text-gray-600 leading-relaxed">
-            At Runner's Delight, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information when you visit our website or make a purchase.
+            At Runner&apos;s Delight, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information when you visit our website or make a purchase.
           </p>
         </section>
 

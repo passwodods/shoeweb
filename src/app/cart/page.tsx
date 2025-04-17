@@ -2,15 +2,24 @@
 
 import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
-import Link from 'next/link'; // For linking back to products or checkout
+import Link from 'next/link';
+
+// Define a type for cart items (placeholder)
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+  image?: string;
+}
 
 export default function CartPage() {
-  const { themeBgClass, themeButtonClass } = useTheme(); // Get theme classes
+  const { themeBgClass, themeButtonClass } = useTheme();
 
   // Placeholder for cart items - replace with actual cart state later
-  const cartItems: any[] = []; // Empty cart for now
+  const cartItems: CartItem[] = []; // Empty cart for now
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const shipping = cartItems.length > 0 ? 5.00 : 0; // Example shipping cost
+  const shipping = cartItems.length > 0 ? 5.00 : 0;
   const total = subtotal + shipping;
 
   return (
@@ -31,22 +40,6 @@ export default function CartPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Cart Items List (Left/Main Column) */}
             <div className="md:col-span-2 space-y-4">
-              {/* Placeholder for cart item component loop */}
-              {/* Example structure for one item: */}
-              {/* <div className="flex items-center justify-between border-b pb-4"> */}
-              {/*   <div className="flex items-center space-x-4"> */}
-              {/*     <Image src="/path/to/image.png" alt="Product" width={80} height={80} className="rounded" /> */}
-              {/*     <div> */}
-              {/*       <h3 className="font-semibold">Product Name</h3> */}
-              {/*       <p className="text-sm text-gray-500">Color: Red</p> */}
-              {/*       <button className="text-red-500 text-sm hover:underline">Remove</button> */}
-              {/*     </div> */}
-              {/*   </div> */}
-              {/*   <div className="flex items-center space-x-3"> */}
-              {/*     <input type="number" value="1" className="w-16 border rounded px-2 py-1 text-center" /> */}
-              {/*     <p className="font-semibold">$120.00</p> */}
-              {/*   </div> */}
-              {/* </div> */}
               <p className="text-center italic text-gray-500">(Cart item display area)</p>
             </div>
 

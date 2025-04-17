@@ -4,7 +4,7 @@ import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
 
 export default function AccountPage() {
-  const { themeBgClass, themeTextClass, themeButtonClass } = useTheme(); // Get theme classes
+  const { themeBgClass, themeButtonClass } = useTheme();
 
   // Placeholder data - replace with actual user data later
   const user = {
@@ -37,7 +37,6 @@ export default function AccountPage() {
           <p className="text-lg text-gray-600 italic">
             You have no recent orders. (Placeholder)
           </p>
-          {/* Add order list component here later */}
           <button className={`mt-4 px-4 py-2 rounded text-white transition duration-300 ${themeButtonClass}`}>
             View All Orders
           </button>
@@ -46,12 +45,10 @@ export default function AccountPage() {
         {/* Settings Section */}
         <section>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-700">Account Settings</h2>
-          {/* Add links or forms for settings like password change */}
           <button className={`mt-4 px-4 py-2 rounded text-white transition duration-300 ${themeButtonClass}`}>
             Change Password
           </button>
         </section>
-
       </div>
     </main>
   );
