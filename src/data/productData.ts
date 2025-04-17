@@ -19,9 +19,9 @@ export interface Product {
 
 // Define theme classes for Orange
 const orangeTheme = {
-  themeBgClass: 'bg-orange-100',
+  themeBgClass: 'bg-orange-200', // Darker shade
   themeButtonClass: 'bg-orange-600 hover:bg-orange-700 focus:ring-orange-500',
-  themeTextClass: 'text-orange-700', // Adjusted for contrast
+  themeTextClass: 'text-orange-800', // Slightly darker text for contrast if needed
 };
 
 export const productVariations: ProductVariation[] = [
@@ -31,9 +31,9 @@ export const productVariations: ProductVariation[] = [
     colorValue: 'bg-red-600',
     imagePath: '/product-images/red/main.png',
     price: 120.00,
-    themeBgClass: 'bg-red-100',
+    themeBgClass: 'bg-red-200', // Darker shade
     themeButtonClass: 'bg-red-600 hover:bg-red-700 focus:ring-red-500',
-    themeTextClass: 'text-red-600',
+    themeTextClass: 'text-red-700', // Darker text
     isDefault: true, // Mark red as default
   },
   {
@@ -42,9 +42,9 @@ export const productVariations: ProductVariation[] = [
     colorValue: 'bg-blue-600',
     imagePath: '/product-images/blue/main.png',
     price: 125.00,
-    themeBgClass: 'bg-blue-100',
+    themeBgClass: 'bg-blue-200', // Darker shade
     themeButtonClass: 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500',
-    themeTextClass: 'text-blue-600',
+    themeTextClass: 'text-blue-700', // Darker text
   },
   {
     id: 'shoe-green',
@@ -52,9 +52,9 @@ export const productVariations: ProductVariation[] = [
     colorValue: 'bg-green-600',
     imagePath: '/product-images/green/main.png',
     price: 115.00,
-    themeBgClass: 'bg-green-100',
+    themeBgClass: 'bg-green-200', // Darker shade
     themeButtonClass: 'bg-green-600 hover:bg-green-700 focus:ring-green-500',
-    themeTextClass: 'text-green-600',
+    themeTextClass: 'text-green-700', // Darker text
   },
   // Changed Black to Orange
   {

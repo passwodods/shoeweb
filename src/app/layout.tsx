@@ -23,15 +23,16 @@ export default function RootLayout({
 }: RootLayoutProps) {
   return (
     <html lang="en">
-      {/* Wrap body content with ThemeProvider */}
+      {/* Comment removed to prevent hydration error */}
       <ThemeProvider>
-        <CartProvider> {/* Wrap with CartProvider */}
-          <body className={`${inter.className}`}>
+        {/* Move CartProvider inside body */}
+        <body className={`${inter.className}`}>
+          <CartProvider>
             <Navbar />
-            <main className="flex-grow">{children}</main> {/* Wrap children in a main tag for semantic structure and flex-grow */}
-            <Footer /> {/* Add Footer here */}
-          </body>
-        </CartProvider>
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </CartProvider>
+        </body>
       </ThemeProvider>
     </html>
   );

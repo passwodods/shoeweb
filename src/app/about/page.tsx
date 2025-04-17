@@ -47,17 +47,20 @@ export default function AboutPage() {
              From the Blog
            </h2>
            <div className="space-y-4 pl-8">
-             <div className="border-l-4 border-gray-300 pl-4">
+             <div className="border-l-4 border-gray-300 pl-4 mb-4">
                 <h3 className="text-xl font-medium text-gray-800 hover:text-gray-600 cursor-pointer">Choosing the Right Running Shoe for Your Gait</h3>
-                <p className="text-sm text-gray-500">April 15, 2025</p>
+                <p className="text-sm text-gray-500 mb-1">April 15, 2025</p>
+                <p className="text-gray-600 text-sm">Understanding pronation and supination is key... (Placeholder content)</p>
              </div>
-              <div className="border-l-4 border-gray-300 pl-4">
+              <div className="border-l-4 border-gray-300 pl-4 mb-4">
                 <h3 className="text-xl font-medium text-gray-800 hover:text-gray-600 cursor-pointer">5 Tips for Preventing Running Injuries</h3>
-                <p className="text-sm text-gray-500">April 1, 2025</p>
+                <p className="text-sm text-gray-500 mb-1">April 1, 2025</p>
+                <p className="text-gray-600 text-sm">Proper warm-ups, stretching, and listening to your body are crucial... (Placeholder content)</p>
              </div>
-              <div className="border-l-4 border-gray-300 pl-4">
+              <div className="border-l-4 border-gray-300 pl-4 mb-4">
                 <h3 className="text-xl font-medium text-gray-800 hover:text-gray-600 cursor-pointer">Fueling Your Run: Pre- and Post-Workout Nutrition</h3>
-                <p className="text-sm text-gray-500">March 20, 2025</p>
+                <p className="text-sm text-gray-500 mb-1">March 20, 2025</p>
+                <p className="text-gray-600 text-sm">Learn what to eat before and after your runs for optimal performance and recovery... (Placeholder content)</p>
              </div>
              {/* Add more placeholder posts or a link to a full blog page */}
            </div>
