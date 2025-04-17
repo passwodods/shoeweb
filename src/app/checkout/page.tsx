@@ -53,20 +53,20 @@ export default function CheckoutPage() {
           <div className="md:col-span-2 space-y-8">
             {/* Shipping Address */}
             <section>
-              <h2 className="text-2xl font-semibold mb-4 border-b pb-2 text-gray-700">Shipping Address</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <h2 className="text-xl md:text-2xl font-semibold mb-4 border-b pb-2 text-gray-700">Shipping Address</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5"> {/* Adjusted gaps */}
                 {/* Form fields - simplified */}
-                <div><label className="block text-sm font-medium text-gray-600">Full Name</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
-                <div><label className="block text-sm font-medium text-gray-600">Email</label><input type="email" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
-                <div className="sm:col-span-2"><label className="block text-sm font-medium text-gray-600">Address</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
-                <div><label className="block text-sm font-medium text-gray-600">City</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
-                <div><label className="block text-sm font-medium text-gray-600">Postal Code</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
+                <div><label className="block text-sm font-medium text-gray-600">Full Name</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
+                <div><label className="block text-sm font-medium text-gray-600">Email</label><input type="email" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
+                <div className="sm:col-span-2"><label className="block text-sm font-medium text-gray-600">Address</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
+                <div><label className="block text-sm font-medium text-gray-600">City</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
+                <div><label className="block text-sm font-medium text-gray-600">Postal Code</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
               </div>
             </section>
 
             {/* Billing Address */}
             <section>
-              <h2 className="text-2xl font-semibold mb-4 border-b pb-2 text-gray-700">Billing Address</h2>
+              <h2 className="text-xl md:text-2xl font-semibold mb-4 border-b pb-2 text-gray-700">Billing Address</h2>
               <div className="flex items-center mb-4">
                 <input
                   id="same-as-shipping"
@@ -78,34 +78,34 @@ export default function CheckoutPage() {
                 <label htmlFor="same-as-shipping" className="ml-2 block text-sm text-gray-900">Same as shipping address</label>
               </div>
               {!sameAsShipping && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 border rounded-md bg-gray-50">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5 p-4 border rounded-md bg-gray-50"> {/* Adjusted gaps */}
                   {/* Billing form fields - shown only if checkbox is unchecked */}
-                   <div><label className="block text-sm font-medium text-gray-600">Full Name</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
-                   <div className="sm:col-span-2"><label className="block text-sm font-medium text-gray-600">Address</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
-                   <div><label className="block text-sm font-medium text-gray-600">City</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
-                   <div><label className="block text-sm font-medium text-gray-600">Postal Code</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
+                   <div><label className="block text-sm font-medium text-gray-600">Full Name</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
+                   <div className="sm:col-span-2"><label className="block text-sm font-medium text-gray-600">Address</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
+                   <div><label className="block text-sm font-medium text-gray-600">City</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
+                   <div><label className="block text-sm font-medium text-gray-600">Postal Code</label><input type="text" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
                 </div>
               )}
             </section>
 
              {/* Payment Details */}
             <section>
-              <h2 className="text-2xl font-semibold mb-4 border-b pb-2 text-gray-700">Payment Details</h2>
+              <h2 className="text-xl md:text-2xl font-semibold mb-4 border-b pb-2 text-gray-700">Payment Details</h2>
                <p className="text-sm text-gray-500 mb-4 flex items-center"><InfoIcon /> This is a placeholder. No real payment will be processed.</p>
-              <div className="space-y-4">
+              <div className="space-y-5"> {/* Increased spacing */}
                  {/* Placeholder for Credit Card fields */}
-                 <div><label className="block text-sm font-medium text-gray-600">Card Number</label><input type="text" placeholder="**** **** **** ****" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
-                 <div className="grid grid-cols-2 gap-4">
-                    <div><label className="block text-sm font-medium text-gray-600">Expiry Date (MM/YY)</label><input type="text" placeholder="MM/YY" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
-                    <div><label className="block text-sm font-medium text-gray-600">CVC</label><input type="text" placeholder="***" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500" /></div>
+                 <div><label className="block text-sm font-medium text-gray-600">Card Number</label><input type="text" placeholder="**** **** **** ****" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
+                 <div className="grid grid-cols-2 gap-x-4 gap-y-5"> {/* Adjusted gaps */}
+                    <div><label className="block text-sm font-medium text-gray-600">Expiry Date (MM/YY)</label><input type="text" placeholder="MM/YY" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
+                    <div><label className="block text-sm font-medium text-gray-600">CVC</label><input type="text" placeholder="***" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm py-2 px-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /></div>
                  </div>
               </div>
             </section>
           </div>
 
           {/* Right Column: Order Summary */}
-          <div className="md:col-span-1 bg-gray-50 p-6 rounded-lg shadow-inner border h-fit sticky top-24">
-            <h2 className="text-2xl font-semibold mb-4 border-b pb-2 text-gray-800">Order Summary</h2>
+          <div className="md:col-span-1 bg-gray-50 p-6 rounded-lg shadow-inner border h-fit sticky top-24"> {/* Make summary sticky */}
+            <h2 className="text-xl md:text-2xl font-semibold mb-4 border-b pb-2 text-gray-800">Order Summary</h2>
             <div className="space-y-3 mb-6">
               {cartItems.map(item => (
                 <div key={item.id} className="flex justify-between text-sm">
