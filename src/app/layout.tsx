@@ -4,6 +4,8 @@ import Navbar from '@/components/Navbar';
 import './globals.css';
 // Import ThemeProvider
 import { ThemeProvider } from '@/context/ThemeContext';
+import { CartProvider } from '@/context/CartContext';
+import Footer from '@/components/Footer'; // Import Footer
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,11 +25,13 @@ export default function RootLayout({
     <html lang="en">
       {/* Wrap body content with ThemeProvider */}
       <ThemeProvider>
-        <body className={`${inter.className}`}>
-          {/* Navbar will now get theme from context */}
-          <Navbar />
-          {children}
-        </body>
+        <CartProvider> {/* Wrap with CartProvider */}
+          <body className={`${inter.className}`}>
+            <Navbar />
+            <main className="flex-grow">{children}</main> {/* Wrap children in a main tag for semantic structure and flex-grow */}
+            <Footer /> {/* Add Footer here */}
+          </body>
+        </CartProvider>
       </ThemeProvider>
     </html>
   );

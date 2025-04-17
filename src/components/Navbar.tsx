@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useTheme } from '@/context/ThemeContext';
-import { motion, AnimatePresence } from 'framer-motion'; // Import Framer Motion
+import { useCart } from '@/context/CartContext'; // Import useCart
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface NavLinkProps {
   href: string;
@@ -41,11 +42,21 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick, isMobile = f
 
 const Navbar: React.FC = () => {
   const { themeButtonClass, themeTextClass } = useTheme();
+  const { cartCount } = useCart(); // Get cart count
   const gradientBg = getGradientClass(themeButtonClass);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const UserIcon = () => ( <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg> );
-  const CartIcon = () => ( <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg> );
+  const CartIcon = () => ( // Add relative positioning for the badge
+    <div className="relative">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+      {cartCount > 0 && ( // Display badge only if cart is not empty
+        <span className="absolute -top-1 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+          {cartCount}
+        </span>
+      )}
+    </div>
+  );
   const HamburgerIcon = () => (
     <svg className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />

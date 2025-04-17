@@ -2,8 +2,10 @@
 
 import React from 'react';
 import { ProductVariation, defaultProduct } from '@/data/productData';
+import { useCart } from '@/context/CartContext';
+import { useRouter } from 'next/navigation'; // Import useRouter
 import AnimatedImage from './AnimatedImage';
-import { motion } from 'framer-motion'; // Keep motion for text animation
+import { motion } from 'framer-motion';
 
 interface HeroSectionProps {
   selectedVariation: ProductVariation | undefined;
@@ -14,6 +16,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   selectedVariation,
   themeButtonClass,
 }) => {
+  const { addToCart } = useCart();
+  const router = useRouter(); // Initialize router
+
   if (!selectedVariation) {
     return <div className="text-center p-10 h-[500px]">Loading product...</div>;
   }
@@ -55,12 +60,25 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </span>
           </div>
 
-          {/* Add to Cart Button */}
-          <div className="flex justify-center md:justify-start">
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mt-8">
+            {/* Add to Cart Button */}
             <button
-              className={`w-auto px-8 py-3 rounded-lg text-white font-bold transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 ${themeButtonClass}`}
+              onClick={() => addToCart(selectedVariation)}
+              className={`w-full sm:w-auto px-8 py-3 rounded-lg text-white font-semibold text-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 ${themeButtonClass}`}
             >
-              Add to Cart
+              Add to Cart - ${selectedVariation.price.toFixed(2)}
+            </button>
+            {/* Buy Now Button */}
+            <button
+              onClick={() => {
+                addToCart(selectedVariation); // Add to cart first
+                router.push('/checkout'); // Then redirect to checkout
+              }}
+              // Slightly different style (e.g., outline or secondary color) - using outline here
+              className={`w-full sm:w-auto px-8 py-3 rounded-lg font-semibold text-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 border-2 ${themeButtonClass.includes('bg-') ? themeButtonClass.replace('bg-', 'border-').replace('hover:bg-', 'hover:border-') : 'border-gray-600'} ${themeButtonClass.includes('bg-') ? themeButtonClass.replace('bg-', 'text-').replace('hover:bg-', 'hover:text-') : 'text-gray-600'} bg-transparent hover:bg-opacity-10`}
+            >
+              Buy Now
             </button>
           </div>
         </motion.div>

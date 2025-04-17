@@ -3,13 +3,16 @@
 import React, { useEffect, useCallback, useRef } from 'react'; // Removed useState, useMemo
 // Import context hook
 import { useTheme } from '@/context/ThemeContext';
-import { productVariations } from '../data/productData'; // Keep productVariations import if needed for interval logic
+import { useCart } from '@/context/CartContext'; // Import useCart
+import { productVariations } from '../data/productData';
 
+import Link from 'next/link'; // Import Link component
 // Import components
 import HeroSection from '../components/HeroSection';
 import ColorSelector from '../components/ColorSelector';
 import ProductGallery from '../components/ProductGallery';
 import KeyFeatures from '../components/KeyFeatures';
+import TechnologySection from '../components/TechnologySection'; // Import TechnologySection
 import ScrollAnimatedShoe from '../components/ScrollAnimatedShoe';
 
 export default function Home() {
@@ -22,6 +25,7 @@ export default function Home() {
     themeButtonClass,
     // themeTextClass is not directly used here anymore
   } = useTheme();
+  const { addToCart } = useCart(); // Get addToCart from CartContext
 
   // Handler function passed to ColorSelector - now uses context setter
   const handleSelectVariation = useCallback((variationId: string) => {
@@ -88,11 +92,23 @@ export default function Home() {
           onSelectVariation={handleSelectVariation} // Pass the updated handler
         />
 
+        {/* Link to Reviews Section */}
+        <div className="text-center mt-8 border-t pt-8 w-full max-w-3xl">
+            <h3 className="text-xl font-semibold mb-3 text-gray-700">See What Others Think</h3>
+            <p className="text-gray-600 mb-4">Check out reviews from our satisfied customers!</p>
+            <Link href="/reviews" className={`inline-block px-6 py-2 rounded-md text-white transition duration-300 shadow-sm hover:shadow-md ${themeButtonClass}`}>
+                Read Reviews
+            </Link>
+        </div>
+
         {/* Product Gallery */}
         <ProductGallery selectedVariation={selectedVariation} />
 
         {/* Key Features Section */}
         <KeyFeatures />
+
+        {/* Technology Section - Pass selectedVariation */}
+        <TechnologySection selectedVariation={selectedVariation} />
       </div>
     </main>
   );
