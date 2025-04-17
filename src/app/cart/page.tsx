@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTheme } from '@/context/ThemeContext';
-import { useCart, CartItem } from '@/context/CartContext'; // Import useCart and CartItem
+import { useCart } from '@/context/CartContext'; // Import useCart, remove CartItem
 
 export default function CartPage() {
   const { themeBgClass, themeButtonClass } = useTheme();

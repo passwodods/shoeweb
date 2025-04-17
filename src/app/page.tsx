@@ -25,7 +25,8 @@ export default function Home() {
     themeButtonClass,
     // themeTextClass is not directly used here anymore
   } = useTheme();
-  const { addToCart } = useCart(); // Get addToCart from CartContext
+  // Remove unused addToCart import here (it's used in HeroSection)
+  // const { addToCart } = useCart();
 
   // Handler function passed to ColorSelector - now uses context setter
   const handleSelectVariation = useCallback((variationId: string) => {

@@ -43,7 +43,7 @@ export default function ReviewsPage() {
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800">{review.name}</h3>
               </div>
-              <p className="text-gray-600 italic mb-3">"{review.comment}"</p>
+              <p className="text-gray-600 italic mb-3">&quot;{review.comment}&quot;</p>
               <p className="text-xs text-gray-400 text-right">Posted on {review.date}</p>
             </div>
           ))}
