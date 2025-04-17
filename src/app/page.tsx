@@ -3,7 +3,7 @@
 import React, { useEffect, useCallback, useRef } from 'react'; // Removed useState, useMemo
 // Import context hook
 import { useTheme } from '@/context/ThemeContext';
-import { useCart } from '@/context/CartContext'; // Import useCart
+ // Import useCart
 import { productVariations } from '../data/productData';
 
 import Link from 'next/link'; // Import Link component
