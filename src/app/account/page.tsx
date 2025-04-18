@@ -34,7 +34,10 @@ export default function AccountPage() {
             <p><span className="font-medium text-gray-800 w-20 inline-block">Name:</span> {user.name}</p>
             <p><span className="font-medium text-gray-800 w-20 inline-block">Email:</span> {user.email}</p>
           </div>
-          <button className={`mt-6 ml-8 px-5 py-2 rounded-md text-white text-sm font-medium transition duration-300 shadow-sm hover:shadow-md ${themeButtonClass}`}>
+          <button
+            onClick={() => alert('Edit Profile clicked (Placeholder)')}
+            className={`mt-6 ml-8 px-5 py-2 rounded-md text-white text-sm font-medium transition duration-300 shadow-sm hover:shadow-md ${themeButtonClass}`}
+          >
             Edit Profile
           </button>
         </section>
@@ -48,7 +51,10 @@ export default function AccountPage() {
             <p className="text-lg text-gray-600 italic mb-4">
               You have no recent orders. (Placeholder)
             </p>
-            <button className={`px-5 py-2 rounded-md text-white text-sm font-medium transition duration-300 shadow-sm hover:shadow-md ${themeButtonClass}`}>
+            <button
+              onClick={() => alert('View All Orders clicked (Placeholder)')}
+              className={`px-5 py-2 rounded-md text-white text-sm font-medium transition duration-300 shadow-sm hover:shadow-md ${themeButtonClass}`}
+            >
               View All Orders
             </button>
           </div>
@@ -60,7 +66,10 @@ export default function AccountPage() {
             <SettingsIcon /> Account Settings
           </h2>
           <div className="pl-8">
-            <button className={`px-5 py-2 rounded-md text-white text-sm font-medium transition duration-300 shadow-sm hover:shadow-md ${themeButtonClass}`}>
+            <button
+              onClick={() => alert('Change Password clicked (Placeholder)')}
+              className={`px-5 py-2 rounded-md text-white text-sm font-medium transition duration-300 shadow-sm hover:shadow-md ${themeButtonClass}`}
+            >
               Change Password
             </button>
             {/* Add more settings options here later */}

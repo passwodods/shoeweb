@@ -89,12 +89,11 @@ const Navbar: React.FC = () => {
             <motion.div variants={mobileLinkVariants} className="w-full"><NavLink href="/policy" onClick={() => setMenuOpen(false)} isMobile>Policy</NavLink></motion.div>
             <motion.div variants={mobileLinkVariants} className="w-full"><NavLink href="/reviews" onClick={() => setMenuOpen(false)} isMobile>Reviews</NavLink></motion.div>
             <motion.div variants={mobileLinkVariants} className="w-full"><NavLink href="/about" onClick={() => setMenuOpen(false)} isMobile>About</NavLink></motion.div>
+            {/* Account link remains in mobile menu */}
             <motion.div variants={mobileLinkVariants} className="w-full"><NavLink href="/account" onClick={() => setMenuOpen(false)} isMobile>
               <span className="flex items-center justify-center gap-2"><UserIcon /> Account</span>
             </NavLink></motion.div>
-            <motion.div variants={mobileLinkVariants} className="w-full"><NavLink href="/cart" onClick={() => setMenuOpen(false)} isMobile>
-              <span className="flex items-center justify-center gap-2"><CartIcon /> Cart</span>
-            </NavLink></motion.div>
+            {/* Cart link removed from mobile menu */}
           </div>
         </motion.div>
       )}
@@ -128,19 +127,22 @@ const Navbar: React.FC = () => {
         </div>
 
 
-        {/* Right: Desktop icons */}
-        <div className="hidden md:flex items-center space-x-4">
-          <Link href="/account" aria-label="Account" className={`${themeTextClass} p-1 rounded-full hover:bg-black/5 transition-colors duration-200`}>
+        {/* Right: Icons (Cart visible on mobile, Account hidden on mobile) */}
+        <div className="flex items-center space-x-3 md:space-x-4">
+          {/* Account Icon (Desktop Only) */}
+          <Link href="/account" aria-label="Account" className={`hidden md:block ${themeTextClass} p-1 rounded-full hover:bg-black/5 transition-colors duration-200`}>
             <UserIcon />
           </Link>
+           {/* Cart Icon (Always Visible) */}
           <Link href="/cart" aria-label="Shopping Cart" className={`${themeTextClass} p-1 rounded-full hover:bg-black/5 transition-colors duration-200`}>
             <CartIcon />
           </Link>
         </div>
 
-         {/* Mobile Logo (Centered when menu is closed) */}
+         {/* Mobile Logo (Adjusted positioning logic) */}
+         {/* Show logo centered only if menu is closed AND on mobile */}
          {!menuOpen && (
-            <Link href="/" className={`md:hidden text-xl font-semibold tracking-tight absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${themeTextClass}`}>Shoe Store</Link>
+            <Link href="/" className={`md:hidden text-xl font-semibold tracking-tight absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${themeTextClass} pointer-events-none`}>Shoe Store</Link>
          )}
       </div>
       {/* Mobile menu */}

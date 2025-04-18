@@ -12,7 +12,8 @@ import HeroSection from '../components/HeroSection';
 import ColorSelector from '../components/ColorSelector';
 import ProductGallery from '../components/ProductGallery';
 import KeyFeatures from '../components/KeyFeatures';
-import TechnologySection from '../components/TechnologySection'; // Import TechnologySection
+import TechnologySection from '../components/TechnologySection';
+import RecommendedProducts from '../components/RecommendedProducts'; // Import RecommendedProducts
 import ScrollAnimatedShoe from '../components/ScrollAnimatedShoe';
 
 export default function Home() {
@@ -110,7 +111,11 @@ export default function Home() {
 
         {/* Technology Section - Pass selectedVariation */}
         <TechnologySection selectedVariation={selectedVariation} />
+
+         {/* Recommended Products Section */}
+         {/* This section is outside the main container for full-width background */}
       </div>
+        <RecommendedProducts />
     </main>
   );
 }
