@@ -15,7 +15,8 @@ export default function AboutPage() {
     <main
       className={`flex min-h-screen flex-col items-center p-4 md:p-8 pt-24 transition-colors duration-500 ease-in-out ${themeBgClass}`}
     >
-      <div className="container mx-auto max-w-4xl bg-white/90 backdrop-blur-sm p-6 md:p-12 rounded-lg shadow-xl border border-gray-200">
+      {/* Slightly more opaque background and subtle inner shadow */}
+      <div className="container mx-auto max-w-4xl bg-white/95 backdrop-blur-sm p-6 md:p-12 rounded-lg shadow-xl border border-gray-200 shadow-inner-sm">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center text-gray-800">About Runner&apos;s Delight</h1>
 
         <section className="mb-12">
@@ -30,7 +31,8 @@ export default function AboutPage() {
           </p>
         </section>
 
-        <section>
+        {/* Consistent bottom margin */}
+        <section className="mb-12 md:mb-16">
           <h2 className="flex items-center text-2xl md:text-3xl font-semibold mb-5 text-gray-700">
              <MissionIcon /> Our Mission
           </h2>
@@ -52,11 +54,15 @@ export default function AboutPage() {
                 <p className="text-sm text-gray-500 mb-1">April 15, 2025</p>
                 <p className="text-gray-600 text-sm">Understanding pronation and supination is key... (Placeholder content)</p>
              </div>
+             {/* Divider */}
+             <hr className="my-4 border-gray-200"/>
               <div className="border-l-4 border-gray-300 pl-4 mb-4">
                 <h3 className="text-xl font-medium text-gray-800 hover:text-gray-600 cursor-pointer">5 Tips for Preventing Running Injuries</h3>
                 <p className="text-sm text-gray-500 mb-1">April 1, 2025</p>
                 <p className="text-gray-600 text-sm">Proper warm-ups, stretching, and listening to your body are crucial... (Placeholder content)</p>
              </div>
+              {/* Divider */}
+             <hr className="my-4 border-gray-200"/>
               <div className="border-l-4 border-gray-300 pl-4 mb-4">
                 <h3 className="text-xl font-medium text-gray-800 hover:text-gray-600 cursor-pointer">Fueling Your Run: Pre- and Post-Workout Nutrition</h3>
                 <p className="text-sm text-gray-500 mb-1">March 20, 2025</p>

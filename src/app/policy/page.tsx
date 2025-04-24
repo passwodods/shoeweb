@@ -19,10 +19,12 @@ export default function PolicyPage() {
     <main
       className={`flex min-h-screen flex-col items-center p-4 md:p-8 pt-24 transition-colors duration-500 ease-in-out ${themeBgClass}`}
     >
-      <div className="container mx-auto max-w-4xl bg-white/90 backdrop-blur-sm p-6 md:p-12 rounded-lg shadow-xl border border-gray-200">
+      {/* Consistent container styling */}
+      <div className="container mx-auto max-w-4xl bg-white/95 backdrop-blur-sm p-6 md:p-12 rounded-lg shadow-xl border border-gray-200 shadow-inner-sm">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center text-gray-800">Privacy Policy</h1>
 
-        <section className="mb-10">
+        {/* Increased bottom margin */}
+        <section className="mb-12">
           <h2 className="flex items-center text-2xl font-semibold mb-4 text-gray-700">
             <IntroIcon /> Introduction
           </h2>
@@ -31,11 +33,13 @@ export default function PolicyPage() {
           </p>
         </section>
 
-        <section className="mb-10">
+        {/* Increased bottom margin */}
+        <section className="mb-12">
           <h2 className="flex items-center text-2xl font-semibold mb-4 text-gray-700">
             <CollectIcon /> Information We Collect
           </h2>
-          <ul className="list-disc pl-12 text-gray-600 space-y-2 leading-relaxed">
+          {/* Increased text size */}
+          <ul className="list-disc pl-12 text-lg text-gray-600 space-y-2 leading-relaxed">
             <li>Personal information you provide (name, email, address, etc.)</li>
             <li>Order and payment details</li>
             <li>Usage data (pages visited, time spent, etc.)</li>
@@ -43,11 +47,13 @@ export default function PolicyPage() {
           </ul>
         </section>
 
-        <section className="mb-10">
+        {/* Increased bottom margin */}
+        <section className="mb-12">
           <h2 className="flex items-center text-2xl font-semibold mb-4 text-gray-700">
             <UseIcon /> How We Use Your Information
           </h2>
-          <ul className="list-disc pl-12 text-gray-600 space-y-2 leading-relaxed">
+          {/* Increased text size */}
+          <ul className="list-disc pl-12 text-lg text-gray-600 space-y-2 leading-relaxed">
             <li>To process and fulfill your orders</li>
             <li>To communicate with you about your account or orders</li>
             <li>To improve our website and services</li>
@@ -55,20 +61,24 @@ export default function PolicyPage() {
           </ul>
         </section>
 
-        <section className="mb-10">
+        {/* Increased bottom margin */}
+        <section className="mb-12">
           <h2 className="flex items-center text-2xl font-semibold mb-4 text-gray-700">
             <SecurityIcon /> Data Security
           </h2>
-          <p className="text-gray-600 leading-relaxed pl-8">
+          {/* Increased text size */}
+          <p className="text-lg text-gray-600 leading-relaxed pl-8">
             We implement industry-standard security measures to protect your data. However, no method of transmission over the Internet is 100% secure.
           </p>
         </section>
 
-        <section className="mb-10">
+        {/* Increased bottom margin */}
+        <section className="mb-12">
           <h2 className="flex items-center text-2xl font-semibold mb-4 text-gray-700">
             <RightsIcon /> Your Rights
           </h2>
-          <ul className="list-disc pl-12 text-gray-600 space-y-2 leading-relaxed">
+          {/* Increased text size */}
+          <ul className="list-disc pl-12 text-lg text-gray-600 space-y-2 leading-relaxed">
             <li>Access, update, or delete your personal information</li>
             <li>Opt out of marketing communications</li>
             <li>Request a copy of your data</li>
@@ -79,7 +89,8 @@ export default function PolicyPage() {
           <h2 className="flex items-center text-2xl font-semibold mb-4 text-gray-700">
             <ContactIconPolicy /> Contact Us
           </h2>
-          <p className="text-gray-600 leading-relaxed pl-8">
+          {/* Increased text size */}
+          <p className="text-lg text-gray-600 leading-relaxed pl-8">
             If you have any questions about this policy, please contact us at <a href="mailto:support@runnersdelight.com" className="font-medium underline hover:text-gray-800">support@runnersdelight.com</a>.
           </p>
         </section>
