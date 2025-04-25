@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react'; // Import useState
 import { useTheme } from '@/context/ThemeContext';
 
 // Simple SVG Icons
@@ -12,11 +12,44 @@ const MessageIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-5
 
 export default function ContactPage() {
   const { themeBgClass, themeButtonClass } = useTheme();
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Handle form submission logic here (e.g., send data to an API)
-    alert('Form submitted (placeholder)!'); // Placeholder action
+    setStatus('loading');
+    setStatusMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setStatusMessage(result.message || 'Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' }); // Clear form
+      } else {
+        setStatus('error');
+        setStatusMessage(result.error || 'An error occurred. Please try again.');
+      }
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      setStatus('error');
+      setStatusMessage('A network error occurred. Please try again.');
+    }
   };
 
   return (
@@ -47,6 +80,8 @@ export default function ContactPage() {
                  id="name"
                  name="name"
                  required
+                 value={formData.name} // Bind value
+                 onChange={handleInputChange} // Add onChange
                  className="block w-full rounded-md border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-2"
                  placeholder="Your Name"
                />
@@ -67,6 +102,8 @@ export default function ContactPage() {
                 id="email"
                 name="email"
                 required
+                value={formData.email} // Bind value
+                onChange={handleInputChange} // Add onChange
                 className="block w-full rounded-md border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-2"
                 placeholder="you@example.com"
               />
@@ -87,6 +124,8 @@ export default function ContactPage() {
                 name="message"
                 rows={4}
                 required
+                value={formData.message} // Bind value
+                onChange={handleInputChange} // Add onChange
                 className="block w-full rounded-md border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-2"
                 placeholder="Your message..."
               ></textarea>
@@ -97,12 +136,20 @@ export default function ContactPage() {
           <div>
             <button
               type="submit"
-              className={`w-full flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white transition duration-300 ${themeButtonClass} focus:outline-none focus:ring-2 focus:ring-offset-2`}
+              className={`w-full flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white transition duration-300 ${themeButtonClass} focus:outline-none focus:ring-2 focus:ring-offset-2 ${status === 'loading' ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={status === 'loading'} // Disable button when loading
             >
-              Send Message
+              {status === 'loading' ? 'Sending...' : 'Send Message'}
             </button>
           </div>
         </form>
+
+        {/* Status Message Display */}
+        {statusMessage && (
+          <div className={`mt-4 text-center p-3 rounded-md ${status === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+            {statusMessage}
+          </div>
+        )}
 
         <div className="mt-12 text-center text-gray-600 border-t pt-6">
             <p>Or email us directly at: <a href="mailto:support@runnersdelight.com" className="font-medium underline hover:text-gray-800">support@runnersdelight.com</a></p>
