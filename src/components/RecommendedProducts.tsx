@@ -5,11 +5,13 @@ import { useTheme } from '@/context/ThemeContext';
 import { defaultProduct } from '@/data/productData'; // Import the full product data
 import ProductCard from './ProductCard'; // Import the ProductCard component
 
-interface RecommendedProductsProps {
-  currentProductId?: string; // Optional: to exclude the currently viewed product if needed later
-}
+// Remove unused prop from interface
+// interface RecommendedProductsProps {
+//   currentProductId?: string;
+// }
 
-const RecommendedProducts: React.FC<RecommendedProductsProps> = ({ currentProductId }) => {
+// Remove props type annotation as the component takes no props
+const RecommendedProducts: React.FC = () => {
   const { themeTextClass } = useTheme();
 
   // For now, just recommend the different color variations of the main product
